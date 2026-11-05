@@ -1,0 +1,17 @@
+# Optional IBM Granite text generation through watsonx.ai
+ibm-watsonx-ai>=1.1.2
+
+# Local multilingual text embeddings
+sentence-transformers>=3.0.0
+
+# Persistent local vector store
+chromadb>=0.5.0
+
+# PDF text extraction
+pypdf>=4.2.0
+
+# Web interface
+streamlit>=1.36.0
+
+# Load optional IBM configuration from .env
+python-dotenv>=1.0.0
