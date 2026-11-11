@@ -39,7 +39,7 @@ The app calls IBM watsonx.ai's `ibm-watsonx-ai` SDK to generate grounded answers
 
 ## Project materials
 
-- [IBM project presentation](IBM.pptx)
+- [IBM project presentation](IBMppt.pdf)
 - [Problem statement](problem.pdf)
 - [Architecture blueprint](architecture_blueprint.svg)
 - [Application](app.py)
