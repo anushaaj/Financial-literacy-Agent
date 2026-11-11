@@ -11,38 +11,22 @@ Run:
 from __future__ import annotations
 
 import html
-import os
 from pathlib import Path
 
-from dotenv import load_dotenv
 import streamlit as st
+
 from rag_engine import (
     LANGUAGE_HINTS,
     FinancialLiteracyRAG,
-    generation_is_configured,
 )
 
+# ── Page configuration ─────────────────────────────────────────────────────
 st.set_page_config(
     page_title="Digital Financial Literacy Agent",
     page_icon="💰",
     layout="wide",
     initial_sidebar_state="expanded",
 )
-load_dotenv()
-
-try:
-    for secret_name in (
-        "WATSONX_APIKEY",
-        "IBM_CLOUD_API_KEY",
-        "WATSONX_PROJECT_ID",
-        "WATSONX_URL",
-        "WATSONX_MODEL_ID",
-    ):
-        secret_value = st.secrets.get(secret_name)
-        if secret_value and not os.getenv(secret_name):
-            os.environ[secret_name] = str(secret_value)
-except st.errors.StreamlitSecretNotFoundError:
-    pass
 
 # ── Custom CSS ─────────────────────────────────────────────────────────────
 st.markdown(
@@ -134,11 +118,6 @@ st.markdown(
 
 # ── Sidebar ────────────────────────────────────────────────────────────────
 with st.sidebar:
-    if generation_is_configured():
-        st.success("Watsonx credentials configured · Granite generation enabled")
-    else:
-        st.info("Watsonx not configured · using retrieval-only answers")
-
     language = st.selectbox(
         "🌐 Language / भाषा / மொழி",
         options=list(LANGUAGE_HINTS.keys()),
