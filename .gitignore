@@ -1,0 +1,17 @@
+.env
+.env.*
+!.env.example
+newitem.env
+
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+
+chroma_db/
+financial_docs/
+.bob/
+.streamlit/secrets.toml
+
+.DS_Store
+Thumbs.db
